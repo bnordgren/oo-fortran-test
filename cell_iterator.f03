@@ -38,7 +38,7 @@ type, extends(AbstractCellIterator) :: ColumnFirstCellIterator
 end type
 
 interface ColumnFirstCellIterator
-!    procedure construct_colfirst
+    procedure construct_colfirst
     procedure construct_colfirst_fromarray
 end interface
 
@@ -51,7 +51,7 @@ type, extends(AbstractCellIterator) :: RowFirstCellIterator
 end type
 
 interface RowFirstCellIterator
-!    procedure construct_rowfirst
+    procedure construct_rowfirst
     procedure construct_rowfirst_fromarray
 end interface
 
@@ -64,7 +64,7 @@ type, extends(AbstractCellIterator) :: CWBorderIterator
 end type
 
 interface CWBorderIterator
-!    procedure construct_cwborder
+    procedure construct_cwborder
     procedure construct_cwborder_fromarray
 end interface
 

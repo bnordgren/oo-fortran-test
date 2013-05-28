@@ -42,6 +42,11 @@ subroutine walk_path(iter)
                 print *, 'coordinate is NULL!'
             else
                 write (*,*) "(",cur_coord%getColumn(),",",cur_coord%getRow(),")"
+                !
+                ! If I was a real program, I would do something
+                ! with each cell here.
+                ! But I'm not the program you're looking for.
+                !
                 DEALLOCATE(cur_coord)
             end if
         end do
