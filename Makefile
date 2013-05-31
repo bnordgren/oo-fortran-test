@@ -1,6 +1,8 @@
+F03COMP=pgfortran
+F03FLAGS= -g 
 
 %.o : %.f03
-	gfortran -g -c -o $@ $<
+	$(F03COMP) $(F03FLAGS) -c -o $@ $<
 
 SRCS= \
     iterator.f03 \
@@ -13,12 +15,13 @@ SRCS= \
 
 OBJS=$(SRCS:.f03=.o)
 
-all: $(OBJS)
+all: $(OBJS) tests
 tests: test_cell_iterator
 clean:
-	rm -f *.o
+	rm -f *.o *.mod
 test_cell_iterator: $(OBJS) test_cell_iterator.o
-	gfortran -g -o test_cell_iterator test_cell_iterator.o $(OBJS) 
+	$(F03COMP) $(F03FLAGS) -o test_cell_iterator \
+		test_cell_iterator.o $(OBJS) 
 
 grid_coordinate_iterator.o : grid_coordinate.o iterator.o
 grid.o : grid_coordinate.o

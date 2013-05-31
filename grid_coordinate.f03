@@ -10,7 +10,8 @@ public :: GridCoordinate, DefaultGridCoordinate
 type, abstract :: GridCoordinate
         private
     contains
-        procedure (getterTemplate), deferred :: getRow, getColumn
+        procedure (getterTemplate), deferred :: getRow 
+        procedure (getterTemplate), deferred :: getColumn
 end type GridCoordinate
 
 abstract interface
