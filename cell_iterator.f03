@@ -145,6 +145,7 @@ function hasnext_rowfirst(self)
     logical                                 :: hasnext_rowfirst
 
     hasnext_rowfirst = .false.
+    print *, 'In hasnext_rowfirst()'
     if (.not. self%started) then 
         hasnext_rowfirst = (self%columns>0) .and. (self%rows>0)
     else 
@@ -160,6 +161,7 @@ function next_rowfirst(self)
     CLASS(RowFirstCellIterator) :: self
     CLASS(GridCoordinate), pointer :: next_rowfirst 
 
+    print *, "Starting next_rowfirst()"
     next_rowfirst => NULL()
     if (self%hasNext() ) then 
         if (self%started) then
@@ -174,6 +176,11 @@ function next_rowfirst(self)
             self%started = .true.
         end if
         next_rowfirst => DefaultGridCoordinate(self%current_col, self%current_row)
+        if (.not. associated(next_rowfirst) ) then
+            print *, "failed to create (", self%current_col,", ",self%current_row,")"
+        else
+            print *, "Created coordinate"
+        end if  
     end if 
 end function
 

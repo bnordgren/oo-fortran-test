@@ -37,7 +37,8 @@ subroutine walk_path(iter)
         print *, "iterator is NULL!"
     else 
         do while (iter%hasNext())  
-            cur_coord => iter%next()
+            print *, "top of loop"
+            cur_coord => (iter%next())
             if (.not. associated(cur_coord)) then 
                 print *, 'coordinate is NULL!'
             else
@@ -49,6 +50,7 @@ subroutine walk_path(iter)
                 !
                 DEALLOCATE(cur_coord)
             end if
+            print *, "bottom of loop"
         end do
         DEALLOCATE(iter)
     end if 
